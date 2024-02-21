@@ -14,6 +14,8 @@ class SurveysServiceProvider extends ServiceProvider
     {
         $this->app->make('lp\surveys\Controllers\SurveysController');
         $this->loadViewsFrom(__DIR__ . '/view','surveys');
+
+
     }
 
     /**
@@ -23,7 +25,17 @@ class SurveysServiceProvider extends ServiceProvider
     {
         include __DIR__.'/routes.php';
 
+        $this->publishes(
+            [__DIR__ . '/views' => base_path('resources/views/vendor/lp')],
+            'views'
+        );
+        $this->publishes([
+            __DIR__.'/View/css' => public_path('vendor/lp/surveys'),
+        ], 'lp-surveys-assets');
+
         $this->loadMigrationsFrom('vendor/lp/surveys/database/migrations');
+
+        $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'lp\surveys');
 
         Log::info('ServiceProvider booting...');
         $this->app->bind('lp\surveys\Models\Survey', function ($app, $id) {
@@ -36,5 +48,8 @@ class SurveysServiceProvider extends ServiceProvider
                 'vendor/lp/surveys/database/migrations' => database_path('migrations'),
             ], 'migrations');
         }
+        $this->publishes([
+            'vendor/lp/surveys/src/resources/lang' => resource_path('lang'),
+        ], 'translations');
     }
 }

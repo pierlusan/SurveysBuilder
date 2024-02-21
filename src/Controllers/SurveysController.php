@@ -21,12 +21,13 @@ class SurveysController extends Controller
         return view('surveys::create');
     }
 
-    public function edit($id)
+    public static function edit($id)
     {
         //$survey = Survey::where('id','3')->first();
         //dd($survey);
         $survey = Survey::findOrFail($id);
         return view('surveys::edit',compact('survey'));
+        //return $survey;
     }
 
     public function store(){
@@ -128,10 +129,11 @@ class SurveysController extends Controller
         }
 
         return redirect('surveys/edit/'.$idSurvey);
+        //return redirect('survey/edit/'.$idSurvey);
     }
 
 
-    public function showSurvey($idSurvey,$idModulo = null)
+    public static function showSurvey($idSurvey,$idModulo = null)
     {
         $survey = Survey::findOrFail($idSurvey);
 
@@ -142,11 +144,12 @@ class SurveysController extends Controller
             //dd($module);
         }
         return view('surveys::complete', compact('survey','module'));
+        //return ['module' => $module , 'survey' => $survey];
     }
 
 
 
-    public function saveResponse($idSurvey,$idModule)
+    public static function saveResponse($idSurvey,$idModule)
     {
         //dd(request()->all());
         $data = request();
@@ -199,10 +202,9 @@ class SurveysController extends Controller
         }else{
             return redirect('surveys/'.$idSurvey.'/'.$nextModule);
         }
-
     }
 
-    public function showResponses($idSurvey,$user)
+    public static function showResponses($idSurvey,$user)
     {
         $responses = Survey_responses::where('survey_id',$idSurvey)->where('user',$user)->get();
         $voto=0;
@@ -215,6 +217,7 @@ class SurveysController extends Controller
             return redirect()->back();
         }else{
             return view('surveys::showResults',compact('responses','voto','valoreTotale'));
+            //return ['responses'=>$responses, 'voto'=>$voto , 'valoreTotale'=>$valoreTotale];
         }
 
     }

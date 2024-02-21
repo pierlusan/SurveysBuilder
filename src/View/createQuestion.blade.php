@@ -1,9 +1,12 @@
+<x-app-layout>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet"  href="{{ asset('vendor/lp/surveys/survey.css') }}">
+
     <style>
         .relative {
             position: relative;
@@ -42,20 +45,24 @@
         .colore-bottone {
             background-color: #a84bff;
         }
+        .opacity-background {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
 
 
     </style>
+
 </head>
 <body>
 <div class="row justify-content-center mt-5">
     <div class="col-md-4">
-        <div class="card mio-colore-personalizzato">
+        <div class="card opacity-background mio-colore-personalizzato">
             <div class="container">
                 <div class="card-header mt-4 rounded-3 bg-white">
                     <div class="colored-bar rounded-5"></div>
-                    <span>Domanda</span>
+                    <span>{{__('message.question')}}</span>
                     <div class="float-end" id="punti">
-                        <label class="ml-auto">Points: 5</label>
+                        <label class="ml-auto">{{__('message.points')}}: 5</label>
                     </div>
                 </div>
                 <!--
@@ -80,18 +87,18 @@
                     <div class="mx-auto max-w-md text-center mb-4 mt-4">
 
                         <select name="type" class="form-select" id="type" onchange="toggleAnswerFields()">
-                            <option value="single_choice">Scelta singola</option>
-                            <option value="open-ended">Risposta Aperta</option>
-                            <option value="linear_scale">Scala Lineare</option>
-                            <option value="multiple_choice">Scelta multipla</option>
+                            <option value="single_choice">{{__('message.single choice')}}</option>
+                            <option value="open-ended">{{__('message.open ended')}}</option>
+                            <option value="linear_scale">{{__('message.linear scale')}}</option>
+                            <option value="multiple_choice">{{__('message.multiple choice')}}</option>
                         </select>
 
 
 
                         <div class="mx-auto max-w-md text-center mb-4 mt-4">
-                            <label for="question" class="block text-stone-100">Domanda<span
+                            <label for="question" class="block text-black-100">{{__('message.question')}}<span
                                     class="font-bold text-base text-red-600">*</span></label><br>
-                            <input placeholder="Domanda" type="text" name="question"
+                            <input placeholder="{{__('message.question')}}" type="text" name="question"
                                    class="form-control mt-2"
                                    id="question" required>
                         </div>
@@ -101,14 +108,14 @@
                         <div id="linear_scale" class="mx-auto max-w-md text-center">
                             <div class="d-flex justify-content-center align-items-center">
                                 <div class="form-group text-center">
-                                    <label for="from">Da:</label>
+                                    <label for="from">{{__('message.from')}}:</label>
                                     <select class="form-select form-select-sm" name="from" id="type1">
                                         <option>0</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group text-center ms-2">
-                                    <label for="to">A:</label>
+                                    <label for="to">{{__('message.to')}}:</label>
                                     <select class="form-select form-select-sm" name="to" id="type2">
                                         <option>1</option>
                                         <option>2</option>
@@ -122,10 +129,10 @@
                             </div>
 
 
-                            <input placeholder="Etichetta" type="text" name="fromAnswer"
+                            <input placeholder="{{__('message.label')}}" type="text" name="fromAnswer"
                                    class="form-control mt-2"
                                    id="etichetta1"><br>
-                            <input placeholder="Etichetta" type="text" name="toAnswer"
+                            <input placeholder="{{__('message.label')}}" type="text" name="toAnswer"
                                    class="form-control"
                                    id="etichetta2" >
                         </div>
@@ -142,7 +149,7 @@
 
 
                     </div>
-                    <button type="submit" class="btn colore-bottone float-end mt-auto mb-2"><strong>Salva</strong></button>
+                    <button type="submit" class="btn colore-bottone float-end mt-auto mb-2"><strong>{{__('message.save')}}</strong></button>
                 </form>
             </div>
         </div>
@@ -200,7 +207,7 @@
         if(questionType === 'single_choice'){
             newQuestion.innerHTML =
                 '<div class="relative d-flex">' +
-                '<input id="answer" placeholder="Opzione" type="text" name="answers['+counter+'][answer]" class="form-control">' +
+                '<input id="answer" placeholder="{{__('message.option')}}" type="text" name="answers['+counter+'][answer]" class="form-control">' +
                 '<span class="remove-icon" onclick="removeQuestion(this)">X</span>' +
                 '</div>' +
                 '<div class="d-flex">' +
@@ -212,7 +219,7 @@
                 '<option value="5">5</option>' +
                 '</select>' +
                 '<select name="answers['+counter+'][next_module_id]" class="form-select ml-2">' +
-                '<option value="">Modulo successivo</option>' +
+                '<option value="">{{__('message.next module')}}</option>' +
                 '@foreach($survey->modules as $modules)' +
                 '<option value="{{ $modules->id }}">{{ $modules->title }}</option>' +
                 '@endforeach' +
@@ -288,3 +295,5 @@
 
     };
 </script>
+
+    </x-app-layout>

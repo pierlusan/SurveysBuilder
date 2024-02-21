@@ -1,9 +1,11 @@
+<x-app-layout>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <style>
         .colored-bar-survey {
             background-color: #8f00ff;
@@ -30,12 +32,16 @@
         .colore-bottone {
             background-color: #a84bff;
         }
+        .opacity-background {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
     </style>
+
 </head>
 <body>
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
-        <div class="card mio-colore-personalizzato">
+        <div class="card opacity-background mio-colore-personalizzato">
             <div class="container">
                 <form action="/" method="get">
                     @csrf
@@ -43,9 +49,9 @@
                         <div class="colored-bar-survey rounded-3"></div>
                         <div class="row">
                             <div class="col">
-                                Titolo: <strong>{{$responses[0]->survey->title}}</strong><br>
-                                Descrizione: <strong>{{$responses[0]->survey->description}}</strong><br>
-                                Voto: <strong>{{$voto}}/{{$valoreTotale}}</strong>
+                                {{__('message.title')}}: <strong>{{$responses[0]->survey->title}}</strong><br>
+                                {{__('message.description')}}: <strong>{{$responses[0]->survey->description}}</strong><br>
+                                {{__('message.points')}}: <strong>{{$voto}}/{{$valoreTotale}}</strong>
                             </div>
                         </div>
                     </div>
@@ -183,3 +189,4 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 </body>
+</x-app-layout>

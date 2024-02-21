@@ -22,6 +22,10 @@ Route::middleware(['web'])->group(function () {
 
     Route::get('deleteQuestion/{question}',[SurveysController::class,'deleteQuestion'])->name('surveys.deleteQuestion');
     Route::get('deleteModule/{module}',[SurveysController::class,'deleteModule'])->name('surveys.deleteModule');
+
+    Route::get('prova', function (){
+       return view('surveys::allSurveys');
+    });
 });
 
 
