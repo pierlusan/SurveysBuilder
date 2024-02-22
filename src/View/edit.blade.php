@@ -8,20 +8,21 @@
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link rel="stylesheet"  href="{{ asset('vendor/lp/surveys/survey.css') }}">
+
+
 
     <style>
         .colored-bar-survey {
-            background-color: #8f00ff;
+            background-color: #8B4513;
             height: 15px;
             margin-left: -16px;
             margin-right: -16px;
-            margin-top: -7.8px;
+            margin-top: -8px;
             margin-bottom: 10px;
             clip-path: polygon(0 0, 100% 0, 100% 50%, 0% 50%);
         }
         .colored-bar-question {
-            background-color: #4285f4;
+            background-color: #a8a29e;
             height: 60px;
             margin-left: -16px;
             margin-right: -16px;
@@ -33,12 +34,13 @@
             background-color: #e6e6fa;
         }
         .colore-bottone {
-            background-color: #fdfd96;
+            background-color: #a8a29e;
         }
         .opacity-background {
             background-color: rgba(255, 255, 255, 0.5);
         }
     </style>
+
 
 </head>
 <body>
@@ -67,7 +69,7 @@
                     @if($survey->modules)
                         @foreach($survey->modules as $module)
                             <form action="{{route('surveys.createQuestion',['survey'=>$survey->id,'module'=>$module->id])}}" method="get">
-                                <div class="card-header rounded-3 bg-white mb-3">
+                                <div class="card-header mt-2 rounded-3 bg-white mb-3">
                                     <div class="colored-bar-survey rounded-5"></div>
                                     <div class="row">
                                         <div class="col">
@@ -86,11 +88,11 @@
                                 <div class="container">
                                     @if($module->questions)
                                         @foreach($module->questions as $question)
-                                            <div class="card-header mt-2 rounded-5 bg-white">
+                                            <div class="card-header mt-2 rounded-5 bg-white ">
+                                                <div class="rounded-5 colored-bar-question"></div>
                                                 <div class="row">
                                                     @if($question->type == 'linear_scale')
                                                         <div class="container">
-                                                            <div class="rounded-5 colored-bar-question"></div>
                                                             <div class="card-body ">
                                                                 <div class="mx-0 mx-sm-auto">
                                                                     <div class="text-center">
@@ -123,7 +125,6 @@
                                                         </div>
                                                     @elseif($question->type == 'single_choice')
                                                         <div class="container">
-                                                            <div class="rounded-5 colored-bar-question"></div>
                                                             <div class="card-body">
                                                                 <div class="row col-5">
                                                                     <p class="fw-bold">{{$question->question}}</p>
@@ -147,7 +148,7 @@
                                                         </div>
                                                     @elseif($question->type == 'open-ended')
                                                         <div class="container">
-                                                            <div class="rounded-5 colored-bar-question"></div>
+
                                                             <div class="card-body">
                                                                 <div class="row">
                                                                     <div class="container text-center mt-3">
@@ -173,7 +174,7 @@
                                                         </div>
                                                     @elseif($question->type == 'multiple_choice')
                                                         <div class="container">
-                                                            <div class="rounded-5 colored-bar-question"></div>
+
                                                             <div class="card-body">
                                                                 <div class="row col-5">
                                                                     <p class="fw-bold">{{$question->question}}</p>

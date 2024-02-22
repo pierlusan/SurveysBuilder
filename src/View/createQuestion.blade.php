@@ -5,7 +5,7 @@
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet"  href="{{ asset('vendor/lp/surveys/survey.css') }}">
+
 
     <style>
         .relative {
@@ -21,11 +21,11 @@
         }
 
         .colored-bar {
-            background-color: #8f00ff;
+            background-color: #a8a29e;
             height: 15px;
             margin-left: -16px;
             margin-right: -16px;
-            margin-top: -7.8px;
+            margin-top: -8px;
             margin-bottom: 10px;
             clip-path: polygon(0 0, 100% 0, 100% 50%, 0% 50%);
         }
@@ -43,7 +43,7 @@
             background-color: #e6e6fa;
         }
         .colore-bottone {
-            background-color: #a84bff;
+            background-color: #7e7874;
         }
         .opacity-background {
             background-color: rgba(255, 255, 255, 0.5);

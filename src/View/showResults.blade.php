@@ -8,7 +8,7 @@
 
     <style>
         .colored-bar-survey {
-            background-color: #8f00ff;
+            background-color: #8B4513;
             height: 15px;
             margin-left: -16px;
             margin-right: -16px;
@@ -17,7 +17,7 @@
             clip-path: polygon(0 0, 100% 0, 100% 50%, 0% 50%);
         }
         .colored-bar-question {
-            background-color: #4285f4;
+            background-color: #a8a29e;
             height: 60px;
             margin-left: -16px;
             margin-right: -16px;
@@ -30,7 +30,7 @@
             background-color: #e6e6fa;
         }
         .colore-bottone {
-            background-color: #a84bff;
+            background-color: #7e7874;
         }
         .opacity-background {
             background-color: rgba(255, 255, 255, 0.5);

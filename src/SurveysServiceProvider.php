@@ -48,8 +48,15 @@ class SurveysServiceProvider extends ServiceProvider
                 'vendor/lp/surveys/database/migrations' => database_path('migrations'),
             ], 'migrations');
         }
+
         $this->publishes([
             'vendor/lp/surveys/src/resources/lang' => resource_path('lang'),
         ], 'translations');
+
+        /*
+        $this->publishes([
+            'vendor/lp/surveys/src/View/css' => resource_path('css'),
+        ], 'color');
+        */
     }
 }

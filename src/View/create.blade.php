@@ -6,15 +6,15 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
               crossorigin="anonymous">
-        <link rel="stylesheet"  href="{{ asset('vendor/lp/surveys/survey.css') }}"/>
-<!--
+       <!-- <link rel="stylesheet"  href="{{ asset('vendor/lp/surveys/survey.css') }}"/> -->
+
         <style>
             .colored-bar-survey {
-                background-color: #8f00ff;
+                background-color: #8B4513;
                 height: 10px;
                 margin-left: -15px;
                 margin-right: -15px;
-                margin-top: -7.8px;
+                margin-top: -8px;
                 margin-bottom: 10px;
                 clip-path: polygon(0 0, 100% 0, 100% 50%, 0% 50%);
             }
@@ -34,14 +34,14 @@
             }
 
             .colore-bottone {
-                background-color: #a84bff;
+                background-color: #7e7874;
             }
 
             .opacity-background {
                 background-color: rgba(255, 255, 255, 0.5);
             }
         </style>
-        -->
+
     </head>
     <body>
     <div class="row justify-content-center mt-5">
@@ -51,7 +51,7 @@
                     <form action="{{route('surveys.store')}}" method="post">
                         @csrf
                         <div class="card-header rounded-3 bg-white mt-4">
-                            <div class="colored-bar rounded-5"></div>
+                            <div class="colored-bar-survey rounded-5"></div>
                             <div class="mb-2">
                                 {{__('message.create survey')}}
                             </div>
